@@ -1,29 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
-unsigned long long int fi[100];
+unsigned long long int fi[1000];
 unsigned long long int printRecursionWrap(int n){
-   unsigned long long int fibcur;
-   if (fi[n] != 0){
-    return fi[n];
+  // unsigned long long int fibcur;
+   if (fi[n] != -1){
+      return fi[n];
+      }
+   if (n <= 1){
+      return n;
    }
-   if (n == 1){
-      fibcur= 0;
-   } else
    if (n == 2){
-      fibcur = 1;
+      return 1;
    }
-   else{
-      fibcur = (printRecursionWrap(n-1)+printRecursionWrap(n-2));
-   }
-   return fibcur;
+   fi[n] = (printRecursionWrap(n-1)+printRecursionWrap(n-2));
+   return fi[n];
 }
 
 unsigned long long int printIterationWrap(int n){
-   if (fi[n] != 0){
-    return fi[n];
-   }
    if (n<=1){
       return 0;
    } else if(n==2){
@@ -42,18 +38,21 @@ unsigned long long int printIterationWrap(int n){
 //    return fibFunc(n);
 // }
 unsigned long long int fibSequence(char s, int n){
-   if (fi[n] != 0){
-    return fi[n];
-   }
+
+   // if (fi[n] != -1){
+   //  return fi[n];
+   // }
       if(s == 'i'){
-         fi[n] = printIterationWrap(n);
+         return printIterationWrap(n);
       } else{
-         fi[n] = printRecursionWrap(n);
+         return printRecursionWrap(n);
       }
-   return fi[n];
 }
 int main(int argc, char *argv[]) {
    unsigned long long int fibN;
+   for (int i = 0; i<100; i++){
+      fi[i]= -1;
+   }
    int numInputted = atoi(argv[1]);
    char ir = argv[2][0];
    fibN = fibSequence(ir, numInputted);
