@@ -5,7 +5,6 @@
 
 unsigned long long int fi[1000];
 unsigned long long int printRecursionWrap(int n){
-  // unsigned long long int fibcur;
    if (fi[n] != -1){
       return fi[n];
       }
@@ -34,20 +33,14 @@ unsigned long long int printIterationWrap(int n){
    return curfib;
 }
 
-// unsigned long long int fibWrapper(unsigned long long int n, (*fibFunc)(unsigned long long int)){
-//    return fibFunc(n);
-// }
 unsigned long long int fibSequence(char s, int n){
-
-   // if (fi[n] != -1){
-   //  return fi[n];
-   // }
       if(s == 'i'){
          return printIterationWrap(n);
       } else{
          return printRecursionWrap(n);
       }
 }
+
 int main(int argc, char *argv[]) {
    unsigned long long int fibN;
    for (int i = 0; i<100; i++){
