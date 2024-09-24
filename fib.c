@@ -7,9 +7,9 @@ unsigned long long int fi[1000];
 unsigned long long int printRecursionWrap(int n){
    if (fi[n] != -1){
       return fi[n];
-      }
+   }
    if (n <= 1){
-      return n;
+      return 0;
    }
    if (n == 2){
       return 1;
