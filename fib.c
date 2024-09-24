@@ -19,6 +19,9 @@ unsigned long long int printRecursionWrap(int n){
 }
 
 unsigned long long int printIterationWrap(int n){
+   if (fi[n] != -1){
+      return fi[n];
+   }
    if (n<=1){
       return 0;
    } else if(n==2){
@@ -32,6 +35,8 @@ unsigned long long int printIterationWrap(int n){
    }
    return curfib;
 }
+
+typedef unsigned long long *fibFunc(int fibIndex);
 
 unsigned long long int fibSequence(char s, int n){
       if(s == 'i'){
